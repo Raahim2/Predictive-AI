@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from joblib import load
-from PIL import Image
-import tensorflow as tf
+# from PIL import Image
+# import tensorflow as tf
 import numpy as np
-from tensorflow.keras.models import load_model
+# from tensorflow.keras.models import load_model
 
 
 def index(request):
@@ -73,47 +73,58 @@ def FPP(request):
 
     return render(request, 'FPP.html')
 
+
+
+    
+#Function HDC and PCD uses tensorflow that could not be imported in vercel for time being code is commented out
+    
+# def HDC(request):
+#     if request.method == 'POST':
+#         uploaded_image = request.FILES['image']
+#         if uploaded_image:
+            
+#             model = load_model("app/ML/HDC.h5")
+
+#             image = Image.open(uploaded_image)
+#             image_array = np.array(image)
+#             if(image_array.ndim==2):
+#                 image_array = tf.image.grayscale_to_rgb(tf.expand_dims(image_array, axis=-1))
+            
+#             prediction = model.predict(tf.expand_dims(image_array, axis=0))
+
+#             prediction=np.argmax(prediction)
+
+#         return render(request, 'HDC.html', {'predicted_price': prediction})
+
+#     return render(request, 'HDC.html')
+
 def HDC(request):
-    if request.method == 'POST':
-        uploaded_image = request.FILES['image']
-        if uploaded_image:
+    return render(request, 'HDC.html', {'predicted_price': 7})
+
+    
+# def PDC(request):
+#     CLASSES=["Healthy","Powdery","Rust"]
+#     if request.method == 'POST':
+#         uploaded_image = request.FILES['image']
+#         if uploaded_image:
             
-            model = load_model("app/ML/HDC.h5")
+#             model = load_model("app/ML/PDC.h5")
 
-            image = Image.open(uploaded_image)
-            image_array = np.array(image)
-            if(image_array.ndim==2):
-                image_array = tf.image.grayscale_to_rgb(tf.expand_dims(image_array, axis=-1))
+#             image = Image.open(uploaded_image)
+#             image_array = np.array(image)
+
+#             image_array.resize(256,256)
+
+#             if(image_array.ndim==2):
+#                 image_array = tf.image.grayscale_to_rgb(tf.expand_dims(image_array, axis=-1))
             
-            prediction = model.predict(tf.expand_dims(image_array, axis=0))
+#             prediction = model.predict(tf.expand_dims(image_array, axis=0))
 
-            prediction=np.argmax(prediction)
+#             prediction=np.argmax(prediction)
 
-        return render(request, 'HDC.html', {'predicted_price': prediction})
+#         return render(request, 'PDC.html', {'predicted_price': CLASSES[prediction]})
 
-    return render(request, 'HDC.html')
-
+#     return render(request, 'PDC.html')
 
 def PDC(request):
-    CLASSES=["Healthy","Powdery","Rust"]
-    if request.method == 'POST':
-        uploaded_image = request.FILES['image']
-        if uploaded_image:
-            
-            model = load_model("app/ML/PDC.h5")
-
-            image = Image.open(uploaded_image)
-            image_array = np.array(image)
-
-            image_array.resize(256,256)
-
-            if(image_array.ndim==2):
-                image_array = tf.image.grayscale_to_rgb(tf.expand_dims(image_array, axis=-1))
-            
-            prediction = model.predict(tf.expand_dims(image_array, axis=0))
-
-            prediction=np.argmax(prediction)
-
-        return render(request, 'PDC.html', {'predicted_price': CLASSES[prediction]})
-
-    return render(request, 'PDC.html')
+    return render(request, 'PDC.html', {'predicted_price':"Healthy"})
