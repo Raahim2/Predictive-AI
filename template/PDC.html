@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block webname %}Plant Disease Classification{% endblock %}
+
+{% block styleblock %} 
+<style>
+        .left {
+       
+        background-color: #f3ff46;
+        filter: contrast(78) ;
+        
+
+        min-height: 100vh;
+        height: auto;
+    
+    }
+    .cf{
+        margin: 10px 10px 10px 50px;
+        font-size: 20px;
+        display: block;
+    }
+    .up{
+        margin: 10px 10px 10px 50px;
+        font-size: 20px;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block htxt2 %}The Plant is{% endblock %}  
+
+{% block prediction %}
+     
+{% if predicted_price %}
+{{ predicted_price }}
+{% endif %}
+
+{% endblock %}
+
+{% block gif %} <img id="gif" src="https://i.pinimg.com/originals/ca/02/09/ca0209c262146dac7f1dadc0c3aaf734.gif" alt="" height="500px"> {% endblock %}
+
+
+{% block headertext %}Uplode image of any Plant{% endblock %}
+
+
+{% block formblock %}
+<form method="post"  enctype="multipart/form-data" >
+    {% csrf_token %}
+    <input type="file" name="image" class="cf">
+    <button type="submit" class="up">Upload</button>
+</form>
+{% endblock %}

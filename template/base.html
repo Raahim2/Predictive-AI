@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block webname %} {% endblock %}</title>
+</head>
+<style>
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+
+    * {
+        font-family: 'Tilt Neon', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main {
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .left {
+        border: 1px solid black;
+        background-color: #f74343;
+        width: 50vw;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .right {
+        
+        width: 50vw;
+        height: 100vh;
+        box-sizing: border-box;
+        float: right;
+    }
+
+    #header-text {
+        font-size: 4rem;
+        width: 40vw;
+        margin: 50px;
+    }
+
+    #disc {
+        font-size: 1.5rem;
+        margin: 5px 50px;
+    }
+
+    #inp1 {
+        margin: 0px 0px 50px 50px;
+        width: 15vw;
+        height: 1rem;
+        font-size: 25px;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .inp2 {
+        margin: 5px 0px;
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+    .radio {
+        margin-left: 50px;
+        width: 6%;
+        height: 2rem;
+    }
+
+    .name {
+        display: inline;
+        font-size: 2rem;
+        margin: 5px 50px;
+    }
+    
+    .name2 {
+        font-size: 2rem;
+        margin: 5px 50px;
+    }
+
+    #submit {
+        font-size: 30px;
+        margin: 30px 50px;
+        width: 30%;
+        padding: 10px;
+    }
+
+    .head2 {
+        text-align: center;
+        font-size: 2rem;
+        margin: 20px;
+       
+    }
+
+
+    #gif{
+        width: 100%;
+        margin: auto;
+
+    }
+    
+
+    @media (max-width: 600px) {
+    
+  .main {
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .left, .right {
+    width: 100%; 
+    height: auto;
+  }
+
+  #header-text {
+    font-size: 4rem;
+    width: 75vw;
+    margin: 50px;
+}
+}
+</style>
+{% block styleblock %} 
+{% endblock %}
+<body>
+    <div class="main">
+        <div class="right">
+            <h3 class="head2">{% block htxt2 %}  {% endblock %}</h3>
+            <p class="head2">
+
+                {% block prediction %}
+                
+                {% endblock %}
+                
+            </p>
+            <div id="gifbox">
+                {% block gif %}  {% endblock %}
+            </div>
+
+        </div>
+
+        <div class="left">
+
+            <div class="form">
+                <h1 id="header-text">{% block headertext %}  {% endblock %}</h1>
+                <p id="disc">Please Fill all the inputs</p><br>
+
+                
+                {% block formblock %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

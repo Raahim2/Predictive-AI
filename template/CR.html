@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block webname %}College Rater{% endblock %}
+
+{% block styleblock %} 
+<style>
+        .left {
+       
+        background-color: #426cbe;
+    
+        height: auto;
+    
+    }
+</style>
+{% endblock %}
+
+{% block htxt2 %} College is rated :-   {% endblock %}  
+
+{% block prediction %}
+     
+{% if predicted_price %}
+{{ predicted_price }}/5
+{% endif %}
+
+{% endblock %}
+
+{% block gif %} <img id="gif" src="https://i.gifer.com/OFAF.gif" alt=""> {% endblock %}
+
+
+{% block headertext %}  Find Your Rating of the College {% endblock %}
+
+
+{% block formblock %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p class="name">Number of Cources Offered</p>
+    <input id="inp1" type="number" name="cources" min="0" max="100"><br>
+
+    <p class="name">Lowest Package (In LPA)</p>
+    <input id="inp1" type="number" name="lp" min="0" max="100"><br>
+
+    <p class="name">Highest Package (In LPA)</p>
+    <input id="inp1" type="number" name="hp" min="0" max="500"><br>
+
+    <p class="name">Campus Area</p>
+    <input id="inp1" type="number" name="area" min="0" max="1000"><br>
+
+    <p class="name">Fees (In Thousands)</p>
+    <input id="inp1" type="number" name="fees" min="0" max="10000"><br>
+
+    <p class="name">Placement % </p>
+    <input id="inp1" type="number" name="placement" min="0" max="100"><br>
+
+    
+
+    <input type="submit" id="submit" value="Predict">
+</form>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block webname %}House Price Prediction{% endblock %}
+
+{% block styleblock %} 
+<style>
+        .left {
+    
+        background-color: #f74343;
+        height: auto;
+        
+    
+    }
+    
+    
+</style>
+{% endblock %}
+
+{% block htxt2 %} Your Estimate House price is   {% endblock %}  
+
+{% block prediction %}
+     
+{% if predicted_price %}
+{{ predicted_price }}
+{% endif %}
+
+{% endblock %}
+
+{% block gif %} <img id="gif" src="https://media.tenor.com/9BwwuOM3ygcAAAAC/house-moving.gif" alt=""> {% endblock %}
+
+
+{% block headertext %}  Find Your House Price in Mumbai {% endblock %}
+
+
+{% block formblock %}
+<form action="" method="post">
+    {% csrf_token %}
+<div >
+    <p class="name">Area</p>
+    <input id="inp1" type="number" name="area"><br>
+</div>
+
+    <div>
+        <p class="name2">BHK</p>
+        <input type="radio" id="1bhk" class="radio" name="bhk" value="1">
+        <label for="1bhk" class="inp2">1</label>
+
+        <input type="radio" id="2bhk" class="radio" name="bhk" value="2">
+        <label for="2bhk" class="inp2">2</label>
+
+        <input type="radio" id="3bhk" class="radio" name="bhk" value="3">
+        <label for="3bhk" class="inp2">3</label>
+
+        <input type="radio" id="4bhk" class="radio" name="bhk" value="4">
+        <label for="4bhk" class="inp2">4</label>
+
+        <input type="radio" id="5bhk" class="radio" name="bhk" value="5">
+        <label for="5bhk" class="inp2">5</label>
+
+        <input type="radio" id="6bhk" class="radio" name="bhk" value="6">
+        <label for="6bhk" class="inp2">6</label>
+
+    </div>
+
+    <input type="submit" id="submit" value="Predict">
+</form>
+{% endblock %}

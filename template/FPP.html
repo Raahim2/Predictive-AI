@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block webname %}Taxi Fair Price Prediction{% endblock %}
+
+{% block styleblock %} 
+<style>
+        .left {
+       
+        background-color: #1cac1c;
+    
+        height: auto;
+    
+    }
+</style>
+{% endblock %}
+
+{% block htxt2 %} Your fair Price Should Be  {% endblock %}  
+
+{% block prediction %}
+     
+{% if predicted_price %}
+₹{{ predicted_price }}
+{% endif %}
+
+{% endblock %}
+
+{% block gif %} <img id="gif" src="https://i.pinimg.com/originals/c8/2c/8c/c82c8c4ff9352c4d2e559c35f21719ad.gif" alt=""> {% endblock %}
+
+
+{% block headertext %}Find Your Taxi Fair Price {% endblock %}
+
+
+{% block formblock %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p class="name">Trip Duration (In minutes)</p>
+    <input id="inp1" type="number" name="time" min="0" max="1000"><br>
+
+    <p class="name">Distance Travelled</p>
+    <input id="inp1" type="number" name="dist" min="0" max="1000"><br>
+
+    <p class="name">Number of passengers</p>
+    <input id="inp1" type="number" name="num" min="0" max="200"><br>
+
+    
+
+    <input type="submit" id="submit" value="Predict">
+</form>
+{% endblock %}

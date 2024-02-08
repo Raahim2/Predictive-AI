@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block webname %}Handwritten Digit Classification{% endblock %}
+
+{% block styleblock %} 
+<style>
+        .left {
+       
+        background-color: #ffffff;
+        filter: invert(1);
+        min-height: 100vh;
+        height: auto;
+    
+    }
+    .cf{
+        margin: 10px 10px 10px 50px;
+        font-size: 20px;
+        display: block;
+    }
+    .up{
+        margin: 10px 10px 10px 50px;
+        font-size: 20px;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block htxt2 %} The number written is{% endblock %}  
+
+{% block prediction %}
+     
+{% if predicted_price %}
+{{ predicted_price }}
+{% endif %}
+
+{% endblock %}
+
+{% block gif %} <img id="gif" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Count_to_Ten-1.gif" alt=""> {% endblock %}
+
+
+{% block headertext %}Uplode image of any handwritten digit {% endblock %}
+
+
+{% block formblock %}
+<form method="post"  enctype="multipart/form-data" >
+    {% csrf_token %}
+    <input type="file" name="image" class="cf">
+    <button type="submit" class="up">Upload</button>
+</form>
+{% endblock %}
